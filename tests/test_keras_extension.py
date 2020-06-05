@@ -69,3 +69,10 @@ class TestKerasExtensionFlowFunctions(unittest.TestCase):
         self.assertEqual(type(new_model), type(model))
         self.assertIsNot(new_model, model)
 
+    def test_can_handle_flow(self):
+        self.extension = KerasExtension()
+        # openml.config.server = self.production_server
+        print('test worked')
+        K_flow = openml.flows.get_flow(9719)
+        assert self.extension.can_handle_flow(K_flow)
+
