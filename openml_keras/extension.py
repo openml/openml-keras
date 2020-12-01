@@ -10,7 +10,7 @@ import zlib
 from collections import OrderedDict  # noqa: F401
 from distutils.version import LooseVersion
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
-
+from . import config
 import keras
 import numpy as np
 import pandas as pd
@@ -47,6 +47,10 @@ LAYER_PATTERN = re.compile(r'layer\d+\_(.*)')
 
 class KerasExtension(Extension):
     """Connect Keras to OpenML-Python."""
+    def __int__(self, epoch=10, batch_size=32):
+        self.epoch = epoch
+        self.batch_size = batch_size
+
 
     ################################################################################################
     # General setup
@@ -754,7 +758,9 @@ class KerasExtension(Extension):
 
         try:
             if isinstance(task, OpenMLSupervisedTask):
-                model_copy.fit(X_train, y_train)
+                epoch = config.epoch
+                batch_size = config.batch_size
+                model_copy.fit(X_train, y_train, epochs=epoch, batch_size=batch_size)
         except AttributeError as e:
             # typically happens when training a regressor on classification task
             raise PyOpenMLError(str(e))
