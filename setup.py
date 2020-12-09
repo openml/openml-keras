@@ -16,9 +16,9 @@ with open(os.path.join("README.md")) as fid:
     README = fid.read()
 
 setuptools.setup(name="openml-keras",
-                 version='0.0.2',
-                 author=" ",
+                 author="Adrian-Stefan Mares, Andrei Danila, Bogdan Enache, Gergana Goncheva, Loïc Alexander Hijl, Veselin Minev, Thanh-Dat Nguyen, Antoine Labasse, Lutou Nijhuis, Claudiu-Teodor Nohai, Dragos Mihai Serban, Tsvetan Zahariev, Sonya Zarkova",
                  author_email="",
+                 version='0.0.4',
                  maintainer="Prabhant Singh",
                  maintainer_email="prabhantsingh@gmail.com",
                  description="Keras extension for Openml python API",
@@ -33,14 +33,14 @@ setuptools.setup(name="openml-keras",
                  # Make sure to remove stale files such as the egg-info before updating this:
                  # https://stackoverflow.com/a/26547314
                  packages=setuptools.find_packages(
-                     include=['openml_keras*', 'openml_keras'],
+                     include=['keras_extension.*', 'keras_extension'],
                      exclude=["*.tests", "*.tests.*", "tests.*", "tests"],
                  ),
                  package_data={'': ['*.txt', '*.md']},
                  python_requires=">=3.5",
                  install_requires=[
                      'openml',
-                     'keras==2.2.4',
+                     'keras>=2.2.4',
                      'tensorflow==1.13.2'
                  ],
                  classifiers=['Intended Audience :: Science/Research',
