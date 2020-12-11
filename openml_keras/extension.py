@@ -47,9 +47,6 @@ LAYER_PATTERN = re.compile(r'layer\d+\_(.*)')
 
 class KerasExtension(Extension):
     """Connect Keras to OpenML-Python."""
-    def __int__(self, epoch=10, batch_size=32):
-        self.epoch = epoch
-        self.batch_size = batch_size
 
 
     ################################################################################################
