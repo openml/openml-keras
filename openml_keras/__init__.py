@@ -2,8 +2,8 @@
 import os
 from .extension import KerasExtension
 from openml.extensions import register_extension
-from . import config
+# from . import config
 
-__all__ = ['KerasExtension', 'config']
+__all__ = ['KerasExtension']
 
 register_extension(KerasExtension)

@@ -755,9 +755,9 @@ class KerasExtension(Extension):
 
         try:
             if isinstance(task, OpenMLSupervisedTask):
-                epoch = config.epoch
-                batch_size = config.batch_size
-                model_copy.fit(X_train, y_train, epochs=epoch, batch_size=batch_size)
+                # epoch = config.epoch
+                # batch_size = config.batch_size
+                model_copy.fit(X_train, y_train, epochs=5, batch_size=32)
         except AttributeError as e:
             # typically happens when training a regressor on classification task
             raise PyOpenMLError(str(e))
