@@ -10,7 +10,7 @@ import zlib
 from collections import OrderedDict  # noqa: F401
 from distutils.version import LooseVersion
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
-# from . import config
+from . import config
 import keras
 import numpy as np
 import pandas as pd
@@ -755,9 +755,9 @@ class KerasExtension(Extension):
 
         try:
             if isinstance(task, OpenMLSupervisedTask):
-                # epoch = config.epoch
-                # batch_size = config.batch_size
-                model_copy.fit(X_train, y_train, epochs=5, batch_size=32)
+                epoch = config.epoch
+                batch_size = config.batch_size
+                model_copy.fit(X_train, y_train, epochs=epoch, batch_size=batch_size)
         except AttributeError as e:
             # typically happens when training a regressor on classification task
             raise PyOpenMLError(str(e))
