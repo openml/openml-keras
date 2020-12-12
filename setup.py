@@ -17,7 +17,7 @@ with open(os.path.join("README.md")) as fid:
 
 setuptools.setup(name="openml-keras",
                  author_email="",
-                 version='0.0.4',
+                 version='0.0.5',
                  author="Adrian-Stefan Mares, Andrei Danila, Bogdan Enache, Gergana Goncheva, Loïc Alexander Hijl, Veselin Minev, Thanh-Dat Nguyen, Antoine Labasse, Lutou Nijhuis, Claudiu-Teodor Nohai, Dragos Mihai Serban, Tsvetan Zahariev, Sonya Zarkova",
                  maintainer="Prabhant Singh",
                  maintainer_email="prabhantsingh@gmail.com",
