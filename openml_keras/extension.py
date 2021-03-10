@@ -758,6 +758,7 @@ class KerasExtension(Extension):
                 epoch = config.epoch
                 batch_size = config.batch_size
                 model_copy.fit(X_train, y_train, epochs=epoch, batch_size=batch_size)
+
         except AttributeError as e:
             # typically happens when training a regressor on classification task
             raise PyOpenMLError(str(e))
@@ -959,6 +960,16 @@ class KerasExtension(Extension):
             raise ValueError('Obtained OpenMLParameter and OpenMLFlow do not correspond. ')
         name = openml_parameter.flow_name  # for PEP8
         return '__'.join(flow_structure[name] + [openml_parameter.parameter_name])
+
+    def check_if_model_fitted(self, model: Any) -> bool:
+        """Returns True/False denoting if the model has already been fitted/trained.
+        Parameters
+        ----------
+        model : Any
+        Returns
+        -------
+        bool
+        """
 
     def instantiate_model_from_hpo_class(
             self,
